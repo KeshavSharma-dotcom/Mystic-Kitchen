@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+.home {
+    @apply relative min-h-screen overflow-hidden flex items-center justify-center text-white bg-cover bg-center;
+
+    background-image: url("../images/HomeBackground.png");
+}
+
+/* Dark Overlay */
+
+.home::before {
+    content: "";
+    @apply absolute inset-0 bg-black/45;
+}
+
+/* ===========================
+        TOP STATS
+=========================== */
+
+.streak,
+.coins,
+.score {
+    @apply absolute z-30 bg-black/40 backdrop-blur-md px-5 py-2 rounded-xl border border-purple-500/30 font-semibold shadow-xl;
+}
+
+.streak {
+    @apply absolute top-6 left-6 z-30 flex items-center gap-3 px-5 py-3 rounded-full border border-orange-400/40 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-md shadow-xl text-lg font-semibold;
+}
+
+.fire {
+    @apply text-2xl;
+    animation: firePulse 1.2s infinite ease-in-out;
+}
+
+.count {
+    @apply px-3 py-1 rounded-full bg-orange-500 text-white font-bold;
+}
+
+@keyframes firePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 6px orange);
+    }
+
+    50% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 15px gold);
+    }
+}
+
+.streak {
+    @apply absolute top-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-lg border border-orange-400/40 font-bold text-lg shadow-xl;
+
+    box-shadow:
+        0 0 15px rgba(251, 146, 60, .35),
+        0 0 35px rgba(239, 68, 68, .25);
+}
+
+.coins {
+    @apply top-6 right-6;
+}
+
+.score {
+    @apply top-20 right-6;
+}
+
+/* ===========================
+        HERO
+=========================== */
+
+.hero {
+
+    @apply relative z-20 flex items-center justify-center;
+
+    width: 650px;
+    height: 650px;
+}
+
+/* ===========================
+        TITLE
+=========================== */
+
+.title {
+
+    @apply text-8xl font-black text-center tracking-wide leading-none select-none;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 30px #9333ea,
+        0 0 60px #9333ea;
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+.play-btn-wrapper {
+
+    @apply absolute z-40;
+
+    bottom: 150px;
+}
+
+.guide-btn-wrapper {
+
+    @apply absolute z-40;
+
+    bottom: 75px;
+}
+
+.play-btn {
+
+    @apply px-16 py-4 rounded-full text-2xl font-bold bg-gradient-to-r from-fuchsia-600 via-violet-600 to-purple-700 transition-all duration-300 shadow-2xl;
+}
+
+.play-btn:hover {
+
+    @apply scale-110;
+
+    box-shadow:
+        0 0 30px #9333ea,
+        0 0 70px #9333ea;
+}
+
+.guide-btn {
+
+    @apply px-10 py-3 rounded-full text-lg font-semibold bg-white/10 backdrop-blur-md border border-white/20 transition-all;
+}
+
+.guide-btn:hover {
+
+    @apply scale-105 bg-white/20;
+}
+
+/* ===========================
+        ORBIT
+=========================== */
+
+.orbit {
+
+    @apply absolute text-5xl;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: center;
+
+    animation:
+        orbit 18s linear infinite,
+        floating 2.5s ease-in-out infinite;
+}
+
+.orbit-1 {
+    animation-delay: 0s;
+}
+
+.orbit-2 {
+    animation-delay: -3s;
+}
+
+.orbit-3 {
+    animation-delay: -6s;
+}
+
+.orbit-4 {
+    animation-delay: -9s;
+}
+
+.orbit-5 {
+    animation-delay: -12s;
+}
+
+.orbit-6 {
+    animation-delay: -15s;
+}
+
+@keyframes orbit {
+
+    from {
+
+        transform:
+            rotate(0deg) translateX(250px) rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg) translateX(250px) rotate(-360deg);
+
+    }
+
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        margin-top: 0px;
+
+    }
+
+    50% {
+
+        margin-top: -12px;
+
+    }
+
+}
